@@ -1,9 +1,11 @@
 import React from 'react';
 import { FeedContext } from '../FeedProvider'
 
+/* https://proxy-bewq.onrender.com/ */
 function Home() {
   const { data } = React.useContext(FeedContext)
   const [teste, setTeste] = React.useState(null)
+  const [visible, setVisible] = React.useState([])
 
   React.useEffect(() => {
     if (data?.posts) setTeste(data.posts[0])
@@ -17,19 +19,28 @@ function Home() {
 
     {teste && <> <h3>{teste.title}</h3>
       <div style={{ columns: 2 }}>
+        <ul>
+          {teste.korSplit.map((string, index) => {
+            return (<li key={index}>
+              {string.split(' ').map(word => <React.Fragment key={`${word}${crypto.randomUUID()}`}><span style={{ background: '#efefef', marginRight: '10px' }}>
+                {word}{" "}
+              </span></React.Fragment>)}
+            </li>)
+          })}
+        </ul>
 
-        {teste.korSplit.map(string => <ul>
-          {string.split(' ').map(word => <><span style={{ background: '#efefef', marginRight: '10px' }}>
-            {word}{" "}
-          </span></>)}
-        </ul>)}
+        <ul>
+          {teste.engSplit.map((string, index) =>
+            <li key={index} onClick={() => {
+              if (visible.includes(index)) {
+                setVisible([...visible.filter(i => i !== index)])
+                return
+              }
+              setVisible([...visible, index])
+            }}>{visible.includes(index) ? string : '-'}</li>
 
-        {teste.engSplit.map(string => <ul>
-          <li>
-            <li>{string}</li>
-
-          </li>
-        </ul>)}
+          )}
+        </ul>
       </div></>}
 
   </div>;
