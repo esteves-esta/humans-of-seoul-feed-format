@@ -28,26 +28,27 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 - [x] Consume RSS Fedd
   - [x] Parse XML to DOM
   - [x] DOM to JSON
+- [x] Show 1 post at a time
+- [X] Be able to go to previous or next post
+- [x] Post features
+  - [x] Hide translation
+  - [x] Toggle translation by paragraph
+  - [x] Select word from the korean original
+  - [x] Show count of words in total
 
 
 ### ✍️ Todo
-
-- [ ] Show 1 post at a time
-  - [ ] Hide translation
-  - [ ] Toggle translation by paragraph
-  - [ ] Select word from the korean original
+- [x] Post features
+  - [ ] Show count of words selected
   - [ ] Export words selected
   - [ ] ?? Export ready to export as anki card ??
   - [ ] ?? Consume dictionary api to get translation of word selected ??
-  - [ ] Show count of words selected
-  - [ ] Show count of words in total
 - [ ] Settings for customization
   - [ ] Change fonts
   - [ ] Change bg and font color
   - [ ] Change word spacing
   - [ ] Change paragraph margin
-- [ ] Be able to go to previous or next post
-- [ ] Show list of posts sorted by date
+- [ ] Show list of posts 
 ---
 
 ## 🧰 Tech Stack

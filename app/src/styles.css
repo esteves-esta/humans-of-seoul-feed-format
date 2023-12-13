@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Gothic+A1&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Gothic+Coding&family=Nanum+Gothic:wght@700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@500&family=Redacted+Script:wght@400;700&family=Song+Myung&family=Stylish&display=swap');
+
+:root {
+  /* font-family: 'Cute Font', sans-serif;
+  font-family: 'Diphylleia', serif;
+  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Gowun Dodum', sans-serif; */
+  /* font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Serif KR', serif;
+  font-family: 'Redacted Script', cursive;
+  font-family: 'Song Myung', serif;
+  font-family: 'Stylish', serif; */
+}
+
+body {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  /* word-spacing: 10px; */
+}

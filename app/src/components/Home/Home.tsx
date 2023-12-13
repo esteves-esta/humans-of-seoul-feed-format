@@ -1,67 +1,50 @@
 import React from 'react';
 import { FeedContext } from '../FeedProvider'
+import { Slash } from 'lucide-react'
+import FeedState from '../../interfaces/feedState';
+import Post from '../Post';
 
 /* https://proxy-bewq.onrender.com/ */
 function Home() {
-  const { data } = React.useContext(FeedContext)
-  const [teste, setTeste] = React.useState(null)
-  const [visible, setVisible] = React.useState([])
+  const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } = React.useContext<FeedState>(FeedContext)
 
-  React.useEffect(() => {
-    if (data?.posts) setTeste(data.posts[0])
-  }, [data])
+  const previousPost = () => {
+    let currentIndex = posts.findIndex(post => post.id === postOnDisplay.id)
+    currentIndex -= 1
+    if (currentIndex === 0) currentIndex = posts.length - 1
+    setPostOnDisplay(posts[currentIndex])
+  }
 
-  return <div>
-    <h1>oi</h1>
-    <p>
-      {data?.posts && data.posts?.length}
-    </p>
 
-    {teste && <> <h3>{teste.title}</h3>
-      <div style={{ columns: 2 }}>
-        <ul>
-          {teste.korSplit.map((string, index) => {
-            return (<li key={index}>
-              {string.split(' ').map(word => <React.Fragment key={`${word}${crypto.randomUUID()}`}><span style={{ background: '#efefef', marginRight: '10px' }}>
-                {word}{" "}
-              </span></React.Fragment>)}
-            </li>)
-          })}
-        </ul>
+  const nextPost = () => {
+    let currentIndex = posts.findIndex(post => post.id === postOnDisplay.id)
+    currentIndex += 1
+    if (currentIndex === posts.length) currentIndex = 0
+    setPostOnDisplay(posts[currentIndex])
+  }
 
-        <ul>
-          {teste.engSplit.map((string, index) =>
-            <li key={index} onClick={() => {
-              if (visible.includes(index)) {
-                setVisible([...visible.filter(i => i !== index)])
-                return
-              }
-              setVisible([...visible, index])
-            }}>{visible.includes(index) ? string : '-'}</li>
+  const exportWordsSelected = () => {
+    console.log(wordsSelected)
+  }
 
-          )}
-        </ul>
-      </div></>}
+  return <main>
+    <header>
+      <h1>휴먼스 오브 서울 <Slash />Humans of seoul </h1>
+    </header>
 
-  </div>;
+    <button onClick={exportWordsSelected}>
+      export
+    </button>
+    <button onClick={previousPost}>
+      previous
+    </button>
+    <button onClick={nextPost}>
+      next
+    </button>
+
+    {postOnDisplay && <Post />}
+
+  </main>;
 }
 
 export default Home;
-
-/* 
-
-   {data?.posts && data.posts.map(post => (<div key={post.link}>
-        <ul>
-          <li>title: {post.title}</li>
-          <li>kor: {post.kor}</li>
-          <li>eng: {post.eng}</li> 
-<li>korSplit: {post.korSplit.length}</li>
- <li>korSplit: {post.korSplit.join("/")}</li> 
-<li>engSplit: {post.engSplit.length}</li>
- <li>engSplit: {post.engSplit.join("/")}</li> 
-        </ul >
-  <hr />
-        </div >
-      ))} 
-      
-*/
