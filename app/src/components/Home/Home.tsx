@@ -5,8 +5,11 @@ function Home() {
   const { data } = React.useContext(FeedContext)
 
   return <div>
-    <h1>Vite + React</h1>
-    {data && data.length}
+    <h1>oi</h1>
+    <p>
+      {data?.posts && data.posts?.length}
+    </p>
+    {/* {data?.posts && data.posts} */}
   </div>;
 }
 

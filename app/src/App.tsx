@@ -1,6 +1,5 @@
-import { Home } from 'lucide-react'
-import './App.css'
 import FeedProvider from './components/FeedProvider'
+import Home from './components/Home'
 
 function App() {
 
