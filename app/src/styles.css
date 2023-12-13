@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Gothic+A1&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Gothic+Coding&family=Nanum+Gothic:wght@700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@500&family=Redacted+Script:wght@400;700&family=Song+Myung&family=Stylish&display=swap');
 
 :root {
+  --color-text: #F3DCBB;
   /* font-family: 'Cute Font', sans-serif;
   font-family: 'Diphylleia', serif;
   font-family: 'Gothic A1', sans-serif;
@@ -20,4 +21,24 @@ body {
   font-weight: 600;
   font-size: 1.4rem;
   /* word-spacing: 10px; */
+  margin: 2.5em 5em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 0em;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.50);
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: normal;
+  letter-spacing: 2px;
 }

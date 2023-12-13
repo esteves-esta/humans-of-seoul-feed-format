@@ -6,7 +6,7 @@ import classes from './Post.module.css'
 function Post() {
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext)
 
-  const { korSplit,kor, engSplit, id, pubDate } = postOnDisplay
+  const { korSplit, kor, engSplit, id, pubDate } = postOnDisplay
 
   function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US').replace(/\//g, '.')
@@ -15,12 +15,16 @@ function Post() {
   return (
     <article className={classes.postContainer}>
       <h3>{formatDate(pubDate)}</h3>
-      <ParagraphLine id={id} value={korSplit} hasWordSelection={true} />
-      <p>
-        {kor.split(' ').length} words
-      </p>
-      <hr />
-      <ParagraphLine id={id} hasVisibilityToogle={true} value={engSplit} />
+      <section>
+        <div>
+          <ParagraphLine id={id} value={korSplit} hasWordSelection={true} />
+          <p>
+            {kor.split(' ').length} words
+          </p>
+        </div>
+
+        <ParagraphLine className={classes.translation} id={id} hasVisibilityToogle={true} value={engSplit} />
+      </section>
     </article>
   )
 }
@@ -30,9 +34,10 @@ interface ParagraphLineProps {
   hasVisibilityToogle?: boolean
   hasWordSelection?: boolean
   id: string | number
+  className?: string
 }
 
-function ParagraphLine({ id, value, hasWordSelection, hasVisibilityToogle }: ParagraphLineProps) {
+function ParagraphLine({ id, value, className = '', hasWordSelection, hasVisibilityToogle }: ParagraphLineProps) {
   const [visible, setVisible] = React.useState([]);
 
   React.useEffect(() => {
@@ -48,10 +53,10 @@ function ParagraphLine({ id, value, hasWordSelection, hasVisibilityToogle }: Par
     setVisible([...visible, index])
   }
 
-  const lineClasseDefault = `${classes.paragraph}`
+  const lineClasseDefault = classes.paragraph
 
   return (
-    <ul>
+    <ul className={className}>
       {value.map((string, index) => {
         const isVisible = visible.includes(index)
         const lineClasses = !isVisible && hasVisibilityToogle ? `${classes.hidden}` : '';

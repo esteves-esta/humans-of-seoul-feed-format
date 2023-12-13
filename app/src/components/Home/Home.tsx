@@ -1,10 +1,9 @@
 import React from 'react';
 import { FeedContext } from '../FeedProvider'
-import { Slash } from 'lucide-react'
+import { Slash, BadgeInfo, Settings } from 'lucide-react'
 import FeedState from '../../interfaces/feedState';
 import Post from '../Post';
 
-/* https://proxy-bewq.onrender.com/ */
 function Home() {
   const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } = React.useContext<FeedState>(FeedContext)
 
@@ -14,7 +13,6 @@ function Home() {
     if (currentIndex === 0) currentIndex = posts.length - 1
     setPostOnDisplay(posts[currentIndex])
   }
-
 
   const nextPost = () => {
     let currentIndex = posts.findIndex(post => post.id === postOnDisplay.id)
@@ -30,20 +28,40 @@ function Home() {
   return <main>
     <header>
       <h1>휴먼스 오브 서울 <Slash />Humans of seoul </h1>
+
+      <nav>
+        <button >
+          <BadgeInfo />
+        </button>
+        <button >
+          <Settings />
+        </button>
+      </nav>
     </header>
 
-    <button onClick={exportWordsSelected}>
-      export
-    </button>
-    <button onClick={previousPost}>
-      previous
-    </button>
-    <button onClick={nextPost}>
-      next
-    </button>
+
 
     {postOnDisplay && <Post />}
 
+
+    <footer>
+      <nav>
+        <button onClick={previousPost}>
+          previous
+        </button>
+        
+        <button onClick={exportWordsSelected}>
+          see all {posts.length} posts
+        </button>
+        <button onClick={exportWordsSelected}>
+          export
+        </button>
+
+        <button onClick={nextPost}>
+          next
+        </button>
+      </nav>
+    </footer>
   </main>;
 }
 

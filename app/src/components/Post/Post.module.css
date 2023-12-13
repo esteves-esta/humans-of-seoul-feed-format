@@ -1,10 +1,22 @@
 .postContainer ul {
   margin: 0px;
   padding: 0px;
+  list-style: none;
 }
 
-.word {}
+.postContainer section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+}
 
+.translation {
+  text-align: right;
+}
+
+.word {
+  line-height: 1.8em;
+}
 
 .wordPadding {
   padding: 0.2em 0em 0.2em 0.3em;
@@ -15,12 +27,13 @@
 }
 
 .selected {
-  background-color: rgba(255, 255, 0, 0.555);
+  background-color: var(--color-text);
 }
 
 .paragraph {
   font-size: 1em;
   margin-bottom: 0.4em;
+  /* line-height: 1.6em; */
 }
 
 .visible {
@@ -29,4 +42,5 @@
 
 .hidden {
   font-family: 'Redacted Script', cursive;
+  color: var(--color-text)
 }
