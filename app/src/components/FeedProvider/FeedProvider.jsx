@@ -2,8 +2,8 @@ import React from "react";
 import useSWR from "swr";
 // import { ToastContext } from "../ToastProvider";
 
-// const FEED_URL = "https://humansofseoul.com/rss";
-const FEED_URL = "http://localhost:3001/";
+const FEED_URL = "https://proxy-bewq.onrender.com/";
+// const FEED_URL = "http://localhost:3001/";
 
 // const localStorageKey = 'feed-content'
 
@@ -12,6 +12,8 @@ https://developer.mozilla.org/en-US/docs/Web/XML/Parsing_and_serializing_XML
 https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
 https://thewebdev.info/2021/02/13/create-an-rss-reader-with-react-and-javascript/
 https://humansofseoul.com/rss
+
+https://allorigins.win/
 */
 
 async function fetcher(teste) {
