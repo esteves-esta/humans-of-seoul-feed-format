@@ -1,6 +1,6 @@
 import classes from './Select.module.css'
 import * as Select from '@radix-ui/react-select';
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Dot } from 'lucide-react'
 
 function SelectBox({
   value,
@@ -40,7 +40,7 @@ const SelectItem = (({ children, value }) => {
     <Select.Item className={classes.SelectItem} value={value}>
       <Select.ItemText>{children}</Select.ItemText>
       <Select.ItemIndicator className={classes.SelectItemIndicator}>
-       {' '}selecionado
+        <Dot />
       </Select.ItemIndicator>
     </Select.Item>
   );

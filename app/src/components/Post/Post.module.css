@@ -30,6 +30,7 @@
 }
 
 .word {
+  user-select: none;
   line-height: var(--line-height);
 }
 
@@ -42,6 +43,7 @@
 }
 
 .selected {
+  user-select: none;
   background-color: var(--color-accent);
 }
 

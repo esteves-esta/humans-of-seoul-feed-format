@@ -1,0 +1,26 @@
+.Footer {
+  width: 80%;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  border-radius: .3em;
+  padding: .8em 2em;
+  /* height: 50px; */
+  /* border: 1px solid var(--color-text); */
+}
+
+.Footer nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.CenterBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.Footer button {}

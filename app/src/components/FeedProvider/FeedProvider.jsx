@@ -19,7 +19,7 @@ https://allorigins.win/
 async function fetcher(teste) {
   console.log(teste);
   const response = await fetch(FEED_URL, {
-    method: "GET",
+    method: "GET"
   });
   const text = await response.text();
   const dataXML = new DOMParser().parseFromString(text, "text/xml");
@@ -28,7 +28,9 @@ async function fetcher(teste) {
   const posts = parseDOM2JSON(itemsHTML);
   posts.map((item) => {
     item.korSplit = item.kor.split(". ");
-    item.engSplit = item.eng.replace(/([a-zA-Z]{1})\.([a-zA-Z]{1})\./g, '$1$2').split(". ");
+    item.engSplit = item.eng
+      .replace(/([a-zA-Z]{1})\.([a-zA-Z]{1})\./g, "$1$2")
+      .split(". ");
   });
   // console.log(posts)
   return { posts };
@@ -62,8 +64,9 @@ function parseDOM2JSON(items) {
       }
     }
     const tempDOM2 = document.createElement("html");
-    tempDOM2.innerHTML = `<head><meta charset="UTF-8" /></head><body>${el.querySelector("title")?.textContent
-      }</body>`;
+    tempDOM2.innerHTML = `<head><meta charset="UTF-8" /></head><body>${
+      el.querySelector("title")?.textContent
+    }</body>`;
 
     if (
       !paragraphs[indexKor]?.textContent.includes("Humans of Seoul") &&
@@ -72,11 +75,13 @@ function parseDOM2JSON(items) {
       posts.push({
         title: tempDOM2?.textContent || "",
         link: el.querySelector("link")?.innerHTML || "",
-        id: el.querySelector("link")?.innerHTML.replace(/\D/g, '') || crypto.randomUUID(),
+        id:
+          el.querySelector("link")?.innerHTML.replace(/\D/g, "") ||
+          crypto.randomUUID(),
         pubDate: el.querySelector("pubDate")?.innerHTML || "",
         kor: paragraphs[indexKor]?.textContent,
         eng: paragraphs[indexEng]?.textContent,
-        selectedWords: [],
+        selectedWords: []
       });
     } /* else {
       console.log(indexKor);
@@ -100,31 +105,45 @@ const errorRetry = (error, key, config, revalidate, { retryCount }) => {
 };
 
 export const FeedContext = React.createContext();
-const localStorageKey = 'feed-posts'
+const localStorageKey = "feed-posts";
 
 function FeedProvider({ children }) {
   const { data, error, isLoading } = useSWR("testes", fetcher, {
     errorRetry,
-    revalidateOnFocus: false,
+    revalidateOnFocus: false
   });
 
-  const [postOnDisplay, setPostOnDisplay] = React.useState(null)
-  const [wordsSelected, setWordsSelected] = React.useState([])
+  const [postOnDisplay, setPostOnDisplay] = React.useState(null);
+  const [wordsSelected, setWordsSelected] = React.useState([]);
   const [posts, setPosts] = React.useState(() => {
-    const storageValue = localStorage.getItem(localStorageKey)
+    const storageValue = localStorage.getItem(localStorageKey);
 
     return storageValue ? JSON.parse(storageValue) : [];
-  })
+  });
 
   React.useEffect(() => {
     if (data?.posts && data.posts.length > 0) {
-      setPostOnDisplay(data.posts[0])
-      setPosts(data.posts)
-      window.localStorage.setItem(localStorageKey, JSON.stringify(data.posts))
+      setPostOnDisplay(data.posts[0]);
+      setPosts(data.posts);
+      window.localStorage.setItem(localStorageKey, JSON.stringify(data.posts));
     }
-  }, [data])
+  }, [data]);
 
-  const state = { posts, error, isLoading, postOnDisplay, setPostOnDisplay, setWordsSelected, wordsSelected };
+  React.useEffect(() => {
+    if (posts?.posts && posts.posts.length > 0) {
+      setPostOnDisplay(posts.posts[0]);
+    }
+  }, [posts]);
+
+  const state = {
+    posts,
+    error,
+    isLoading,
+    postOnDisplay,
+    setPostOnDisplay,
+    setWordsSelected,
+    wordsSelected
+  };
   return <FeedContext.Provider value={state}>{children}</FeedContext.Provider>;
 }
 

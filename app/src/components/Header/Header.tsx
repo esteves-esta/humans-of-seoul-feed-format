@@ -1,16 +1,17 @@
-import { Slash, BadgeInfo, Settings } from 'lucide-react'
-import React from 'react';
-import LateralModal from '../LateralModal';
-import SelectBox from '../SelectBox';
-import SliderCustom from '../SliderCustom';
-import { ThemeContext } from '../ThemeProvider';
-import classes from './Styles.module.css'
+import { Slash, BadgeInfo, Settings } from "lucide-react";
+import React from "react";
+import LateralModal from "../LateralModal";
+import SelectBox from "../SelectBox";
+import SliderCustom from "../SliderCustom";
+import { ThemeContext } from "../ThemeProvider";
+import classes from "./Styles.module.css";
 
 function Header() {
-  const [openInfo, setOpenInfo] = React.useState(false)
-  const [openThemeSettings, setOpenThemeSettings] = React.useState(false)
+  const [openInfo, setOpenInfo] = React.useState(false);
+  const [openThemeSettings, setOpenThemeSettings] = React.useState(false);
 
-  const { color,
+  const {
+    color,
     setColor,
     fontSize,
     setFontSize,
@@ -18,110 +19,133 @@ function Header() {
     setFontWeight,
     lineHeight,
     setlineHeight,
-    font, setFont,
-    wordSpacing, setWordSpacing,
+    font,
+    setFont,
+    wordSpacing,
+    setWordSpacing,
     themeReset
-  } = React.useContext(ThemeContext)
+  } = React.useContext(ThemeContext);
 
-  return <header className={classes.header}>
-    <h1 className={classes.title}>휴먼스 오브 서울 <Slash />
-      <span>Humans of seoul</span></h1>
+  return (
+    <header className={classes.header}>
+      <h1 className={classes.title}>
+        휴먼스 오브 서울 <Slash />
+        <span>Humans of seoul</span>
+      </h1>
 
-    <nav>
-      <button onClick={() => setOpenInfo(true)}>
-        <BadgeInfo />
-      </button>
-      <button onClick={() => setOpenThemeSettings(true)}>
-        <Settings />
-      </button>
-    </nav>
-    
-    <LateralModal title="About" open={openInfo} setOpen={setOpenInfo} >
-      <p>This website is populate by Humans of Seoul RSS feed.</p>
-      <p>This project was made for:</p>
-      <ul>
-        <li>Practice my frontend skill</li>
-        <li>Practice my reading of korean and be able to only see the original korean text first to try to translate it first by myself.</li>
-      </ul>
-    </LateralModal>
-    <LateralModal title="Theme customization" open={openThemeSettings} setOpen={setOpenThemeSettings} >
-      <button onClick={themeReset}>
-        reset
-      </button>
-      <hr />
-      <div>
-        <label htmlFor="theme">color theme - {color}</label>
-        <SelectBox
-          id='theme'
-          value={color}
-          onValueChange={setColor}
-          placeholder="Choose a theme"
-          label="Theme"
-          options={['teste', 'teste1', 'teste2', 'teste3', 'teste4']}
-        />
-      </div>
+      <nav>
+        <button onClick={() => setOpenInfo(true)}>
+          <BadgeInfo />
+        </button>
+        <button onClick={() => setOpenThemeSettings(true)}>
+          <Settings />
+        </button>
+      </nav>
 
-      <hr />
+      <LateralModal title="About" open={openInfo} setOpen={setOpenInfo}>
+        <p>This website is populate by Humans of Seoul RSS feed.</p>
+        <p>This project was made for:</p>
+        <ul>
+          <li>Practice my frontend skill</li>
+          <li>
+            Practice my reading of korean and be able to only see the original
+            korean text first to try to translate it first by myself.
+          </li>
+        </ul>
+      </LateralModal>
+      <LateralModal
+        title="Theme customization"
+        open={openThemeSettings}
+        setOpen={setOpenThemeSettings}
+      >
+        <button onClick={themeReset}>reset</button>
 
-      <div>
-        <label htmlFor="theme"> {font}</label>
-        <SelectBox
-          id='theme'
-          value={font}
-          onValueChange={setFont}
-          placeholder="Choose a font"
-          label="Theme"
-          options={['Cute Font',
-            'Diphylleia',
-            'Gothic A1',
-            'Gowun Batang',
-            'Gowun Dodum',
-            'Nanum Gothic Coding',
-            'Nanum Myeongjo',
-            'Noto Sans KR',
-            'Noto Serif KR',
-            'Song Myung',
-            'Stylish']}
-        />
-      </div>
+        <div className={classes.Field}>
+          <label htmlFor="theme">Color Theme</label>
+          <SelectBox
+            id="theme"
+            value={color}
+            onValueChange={setColor}
+            placeholder="Choose a theme"
+            label="Theme"
+            options={["teste", "teste1", "teste2", "teste3", "teste4"]}
+          />
+        </div>
 
-      <hr />
+        <div className={classes.Field}>
+          <label htmlFor="fonts">Font</label>
+          <SelectBox
+            id="fonts"
+            value={font}
+            onValueChange={setFont}
+            placeholder="Choose a font"
+            label="Theme"
+            options={[
+              "Cute Font",
+              "Diphylleia",
+              "Gothic A1",
+              "Gowun Batang",
+              "Gowun Dodum",
+              "Nanum Gothic Coding",
+              "Nanum Myeongjo",
+              "Noto Sans KR",
+              "Noto Serif KR",
+              "Song Myung",
+              "Stylish"
+            ]}
+          />
+        </div>
 
-      <p>font size - {fontSize}</p>
-      <SliderCustom
-        value={fontSize}
-        onValueChange={setFontSize}
-        min={1}
-        max={2}
-        step={0.1} />
+        <div className={classes.Field}>
+          <label htmlFor="fontSize">Font Size</label>
+          <SliderCustom
+            id="fontSize"
+            value={fontSize}
+            onValueChange={setFontSize}
+            min={1}
+            max={2}
+            step={0.1}
+          />
+        </div>
 
-      <hr />
-      <p>{fontWeight}</p>
-      <SliderCustom
-        value={fontWeight}
-        onValueChange={setFontWeight}
-        max={900}
-        min={300}
-        step={100} />
-      <hr />
-      <p>{lineHeight}</p>
-      <SliderCustom
-        value={lineHeight}
-        onValueChange={setlineHeight}
-        max={3}
-        min={1}
-        step={0.5} />
-      <hr />
-      <p>{wordSpacing}</p>
-      <SliderCustom
-        value={wordSpacing}
-        onValueChange={setWordSpacing}
-        max={2}
-        min={0}
-        step={0.15} />
-    </LateralModal>
-  </header>;
+        <div className={classes.Field}>
+          <label htmlFor="fontWeight">Font Weight</label>
+          <SliderCustom
+            id="fontWeight"
+            value={fontWeight}
+            onValueChange={setFontWeight}
+            max={900}
+            min={300}
+            step={100}
+          />{" "}
+        </div>
+
+        <div className={classes.Field}>
+          <label htmlFor="lineHeight">Line spacing</label>
+          <SliderCustom
+            id="lineHeight"
+            value={lineHeight}
+            onValueChange={setlineHeight}
+            max={3}
+            min={1}
+            step={0.5}
+          />
+        </div>
+
+        <div className={classes.Field}>
+          <label htmlFor="wordSpacing">Word spacing</label>
+          <SliderCustom
+            id="wordSpacing"
+            value={wordSpacing}
+            onValueChange={setWordSpacing}
+            max={2}
+            min={0}
+            step={0.15}
+          />{" "}
+        </div>
+      </LateralModal>
+    </header>
+  );
 }
-
 
 export default Header;

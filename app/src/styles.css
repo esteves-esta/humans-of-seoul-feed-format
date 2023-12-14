@@ -202,7 +202,7 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
-  transition: all .5s ease-in
+  transition: color .5s ease-in
 }
 
 a:hover,
