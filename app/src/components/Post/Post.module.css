@@ -15,7 +15,7 @@
 }
 
 .word {
-  line-height: 1.8em;
+  line-height: var(--line-height);
 }
 
 .wordPadding {
@@ -23,7 +23,7 @@
   border-radius: 8px;
   margin-right: 0.25em;
   letter-spacing: 0em;
-  /* word-spacing: 1em; */
+  word-spacing: var(--word-spacing);
 }
 
 .selected {
@@ -42,5 +42,6 @@
 
 .hidden {
   font-family: 'Redacted Script', cursive;
+  font-weight: 900;
   color: var(--color-text)
 }

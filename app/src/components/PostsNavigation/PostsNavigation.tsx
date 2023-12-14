@@ -2,9 +2,11 @@ import React from 'react';
 import PostsListModal from '../PostsListModal';
 import { FeedContext } from '../FeedProvider'
 import FeedState from '../../interfaces/feedState';
+import classes from './Styles.module.css'
 
 function PostsNavigation() {
   const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } = React.useContext<FeedState>(FeedContext)
+  const [open, setOpen] = React.useState(false)
 
   const previousPost = () => {
     let currentIndex = posts.findIndex(post => post.id === postOnDisplay.id)
@@ -26,13 +28,13 @@ function PostsNavigation() {
 
 
   return <footer>
-    <PostsListModal />
+    <PostsListModal open={open} setOpen={setOpen} />
     <nav>
       <button onClick={previousPost}>
         previous
       </button>
 
-      <button onClick={exportWordsSelected}>
+      <button onClick={() => setOpen(true)}>
         see all {posts.length} posts
       </button>
       <button onClick={exportWordsSelected}>

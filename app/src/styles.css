@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Gothic+A1&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Gothic+Coding&family=Nanum+Gothic:wght@700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@500&family=Redacted+Script:wght@400;700&family=Song+Myung&family=Stylish&display=swap');
 
 :root {
+  --bg-color: #fff;
   --color-text: #F3DCBB;
+  --font-family: 'Cute Font', serif;
+  --font-weight: 400;
+  --font-size: 1.4rem;
+  --line-height: 1.8em;
+  --word-spacing: 0;
+
   /* font-family: 'Cute Font', sans-serif;
   font-family: 'Diphylleia', serif;
   font-family: 'Gothic A1', sans-serif;
@@ -16,12 +23,26 @@
   font-family: 'Stylish', serif; */
 }
 
+.teste {
+  --color-text: blue;
+  --bg-color: "yellow"
+}
+
+.teste1 {
+  --color-text: #F3DCBB;
+  --bg-color: "#fff"
+}
+
 body {
-  font-family: 'Gowun Batang', serif;
-  font-weight: 600;
-  font-size: 1.4rem;
   /* word-spacing: 10px; */
   margin: 2.5em 5em;
+}
+
+main {
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
 }
 
 header {

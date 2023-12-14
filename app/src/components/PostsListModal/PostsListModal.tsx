@@ -1,39 +1,33 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import './styles.css';
+import classes from './Styles.module.css'
+import { FeedContext } from '../FeedProvider'
+import FeedState from '../../interfaces/feedState';
 
-function PostsListModal() {
-  return <Dialog.Root>
-    <Dialog.Trigger asChild>
-      <button className="Button violet">asdf profile</button>
-    </Dialog.Trigger>
+function PostsListModal({ open, setOpen }) {
+  const { posts } = React.useContext<FeedState>(FeedContext)
+
+
+  return <Dialog.Root open={open} onOpenChange={setOpen}>
     <Dialog.Portal>
-      <Dialog.Overlay className="DialogOverlay" />
+      <Dialog.Overlay  />
       <Dialog.Content className="DialogContent1">
         <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
         <Dialog.Description className="DialogDescription">
-          Make changes to your profile here. Click save when you're done.
+          List of posts
         </Dialog.Description>
-        <fieldset className="Fieldset">
-          <label className="Label" htmlFor="name">
-            Name
-          </label>
-          <input className="Input" id="name" defaultValue="Pedro Duarte" />
-        </fieldset>
-        <fieldset className="Fieldset">
-          <label className="Label" htmlFor="username">
-            Username
-          </label>
-          <input className="Input" id="username" defaultValue="@peduarte" />
-        </fieldset>
-        <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
-          <Dialog.Close asChild>
-            <button className="Button green">Save changes</button>
-          </Dialog.Close>
-        </div>
+        <ul>
+          {posts.map(post =>
+            <li key={post.id}>
+              {post.pubDate} -
+              {post.kor}
+            </li>
+          )}
+        </ul>
         <Dialog.Close asChild>
           <button className="IconButton" aria-label="Close">
-  x
+            x
           </button>
         </Dialog.Close>
       </Dialog.Content>
