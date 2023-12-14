@@ -4,6 +4,7 @@ import LateralModal from '../LateralModal';
 import SelectBox from '../SelectBox';
 import SliderCustom from '../SliderCustom';
 import { ThemeContext } from '../ThemeProvider';
+import classes from './Styles.module.css'
 
 function Header() {
   const [openInfo, setOpenInfo] = React.useState(false)
@@ -22,8 +23,9 @@ function Header() {
     themeReset
   } = React.useContext(ThemeContext)
 
-  return <header>
-    <h1>휴먼스 오브 서울 <Slash />Humans of seoul </h1>
+  return <header className={classes.header}>
+    <h1 className={classes.title}>휴먼스 오브 서울 <Slash />
+      <span>Humans of seoul</span></h1>
 
     <nav>
       <button onClick={() => setOpenInfo(true)}>
@@ -33,6 +35,7 @@ function Header() {
         <Settings />
       </button>
     </nav>
+    
     <LateralModal title="About" open={openInfo} setOpen={setOpenInfo} >
       <p>This website is populate by Humans of Seoul RSS feed.</p>
       <p>This project was made for:</p>
@@ -54,7 +57,7 @@ function Header() {
           onValueChange={setColor}
           placeholder="Choose a theme"
           label="Theme"
-          options={['teste', 'teste1']}
+          options={['teste', 'teste1', 'teste2', 'teste3', 'teste4']}
         />
       </div>
 

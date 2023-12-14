@@ -26,11 +26,9 @@ function SelectBox({
             {/* <Select.Label className={classes.SelectLabel}>{label}</Select.Label> */}
 
             {options.map(option =>
-              <SelectItem value={option}>{option}</SelectItem>
+              <SelectItem key={option} value={option}>{option}</SelectItem>
             )}
           </Select.Group>
-
-
         </Select.Viewport>
       </Select.Content>
     </Select.Portal>
@@ -42,7 +40,7 @@ const SelectItem = (({ children, value }) => {
     <Select.Item className={classes.SelectItem} value={value}>
       <Select.ItemText>{children}</Select.ItemText>
       <Select.ItemIndicator className={classes.SelectItemIndicator}>
-        x
+       {' '}selecionado
       </Select.ItemIndicator>
     </Select.Item>
   );

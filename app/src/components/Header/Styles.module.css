@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0em 0em 2em 0em;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: normal;
+  letter-spacing: 2px;
+  /* color: hsl(var(--text-color-h), 20%, 44%); */
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.header button {
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+
+h1>svg {
+  margin: 0px 20px;
+}
+
+h1>span {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+}

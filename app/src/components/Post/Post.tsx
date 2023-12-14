@@ -2,6 +2,7 @@ import React from 'react';
 import FeedState from '../../interfaces/feedState';
 import { FeedContext } from '../FeedProvider'
 import classes from './Post.module.css'
+import { ThemeContext } from '../ThemeProvider';
 
 function Post() {
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext)
@@ -11,14 +12,22 @@ function Post() {
   function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US').replace(/\//g, '.')
   }
+  const { fontSize, wordSpacing, fontWeight, lineHeight, font } = React.useContext(ThemeContext)
 
   return (
-    <article className={classes.postContainer}>
+    <article className={classes.postContainer}
+      style={{
+        '--font-family': font,
+        '--font-weight': fontWeight,
+        '--font-size': fontSize + 'em',
+        '--line-height': lineHeight + 'em',
+        '--word-spacing': wordSpacing + 'em',
+      } as React.CSSProperties}>
       <h3>{formatDate(pubDate)}</h3>
       <section>
         <div>
           <ParagraphLine id={id} value={korSplit} hasWordSelection={true} />
-          <p>
+          <p className={classes.wordCount}>
             {kor.split(' ').length} words
           </p>
         </div>

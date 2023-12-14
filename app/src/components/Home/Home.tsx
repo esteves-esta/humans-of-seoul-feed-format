@@ -8,18 +8,10 @@ import PostsNavigation from '../PostsNavigation';
 import { ThemeContext } from '../ThemeProvider';
 
 function Home() {
-  const { color, fontSize, wordSpacing,fontWeight, lineHeight, font } = React.useContext(ThemeContext)
+  const { color } = React.useContext(ThemeContext)
 
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext)
-  return <main className={color}
-
-    style={{
-      '--font-family': font,
-      '--font-weight': fontWeight,
-      '--font-size': fontSize + 'rem',
-      '--line-height': lineHeight + 'em',
-      '--word-spacing': wordSpacing + 'em',
-    } as React.CSSProperties}>
+  return <main className={color}>
     <Header />
 
     {postOnDisplay && <Post />}
