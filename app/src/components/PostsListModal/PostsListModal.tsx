@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import './styles.css';
 import classes from './Styles.module.css'
 import { FeedContext } from '../FeedProvider'
 import FeedState from '../../interfaces/feedState';
@@ -12,9 +11,9 @@ function PostsListModal({ open, setOpen }) {
   return <Dialog.Root open={open} onOpenChange={setOpen}>
     <Dialog.Portal>
       <Dialog.Overlay  />
-      <Dialog.Content className="DialogContent1">
-        <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
-        <Dialog.Description className="DialogDescription">
+      <Dialog.Content className={classes.DialogContent1}>
+        <Dialog.Title className={classes.DialogTitle}>Edit profile</Dialog.Title>
+        <Dialog.Description className={classes.DialogDescription}>
           List of posts
         </Dialog.Description>
         <ul>
@@ -26,7 +25,7 @@ function PostsListModal({ open, setOpen }) {
           )}
         </ul>
         <Dialog.Close asChild>
-          <button className="IconButton" aria-label="Close">
+          <button className={classes.IconButton} aria-label="Close">
             x
           </button>
         </Dialog.Close>

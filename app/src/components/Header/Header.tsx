@@ -6,7 +6,9 @@ import SliderCustom from '../SliderCustom';
 import { ThemeContext } from '../ThemeProvider';
 
 function Header() {
-  const [open, setOpen] = React.useState(false)
+  const [openInfo, setOpenInfo] = React.useState(false)
+  const [openThemeSettings, setOpenThemeSettings] = React.useState(false)
+
   const { color,
     setColor,
     fontSize,
@@ -24,14 +26,22 @@ function Header() {
     <h1>휴먼스 오브 서울 <Slash />Humans of seoul </h1>
 
     <nav>
-      <button >
+      <button onClick={() => setOpenInfo(true)}>
         <BadgeInfo />
       </button>
-      <button onClick={() => setOpen(true)}>
+      <button onClick={() => setOpenThemeSettings(true)}>
         <Settings />
       </button>
     </nav>
-    <LateralModal open={open} setOpen={setOpen} >
+    <LateralModal title="About" open={openInfo} setOpen={setOpenInfo} >
+      <p>This website is populate by Humans of Seoul RSS feed.</p>
+      <p>This project was made for:</p>
+      <ul>
+        <li>Practice my frontend skill</li>
+        <li>Practice my reading of korean and be able to only see the original korean text first to try to translate it first by myself.</li>
+      </ul>
+    </LateralModal>
+    <LateralModal title="Theme customization" open={openThemeSettings} setOpen={setOpenThemeSettings} >
       <button onClick={themeReset}>
         reset
       </button>

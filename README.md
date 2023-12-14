@@ -35,20 +35,21 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
   - [x] Toggle translation by paragraph
   - [x] Select word from the korean original
   - [x] Show count of words in total
-
+- [x] Settings for customization
+  - [x] Change fonts
+  - [x] Change bg and font color
+  - [x] Change word spacing
+  - [x] Change paragraph margin
+- [x] Show list of posts 
 
 ### ✍️ Todo
+- [ ] Style / Follow the prototype
 - [x] Post features
   - [ ] Show count of words selected
   - [ ] Export words selected
   - [ ] ?? Export ready to export as anki card ??
   - [ ] ?? Consume dictionary api to get translation of word selected ??
-- [ ] Settings for customization
-  - [ ] Change fonts
-  - [ ] Change bg and font color
-  - [ ] Change word spacing
-  - [ ] Change paragraph margin
-- [ ] Show list of posts 
+
 ---
 
 ## 🧰 Tech Stack
