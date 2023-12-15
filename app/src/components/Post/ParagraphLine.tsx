@@ -65,6 +65,7 @@ const ParagraphLine = React.forwardRef(
               }}
             >
               <Word
+                lineIndex={index}
                 id={id}
                 hasWordSelection={hasWordSelection}
                 value={string.split(" ")}
@@ -82,37 +83,42 @@ export default ParagraphLine;
 
 interface WordProps {
   id: string | number;
+  lineIndex: number;
   value: string[];
   hasWordSelection?: boolean;
   onWordPress?: (event: unknown) => void;
 }
 
-function Word({ id, value, hasWordSelection, onWordPress }: WordProps) {
-  const [selected, setSelected] = React.useState([]);
-
-  const { setWordsSelected, wordsSelected, postOnDisplay } =
+function Word({
+  id,
+  value,
+  hasWordSelection,
+  onWordPress,
+  lineIndex
+}: WordProps) {
+  const { setWordsSelected, wordsSelected } =
     React.useContext<FeedState>(FeedContext);
+
+  const [lineSelected, setLineSelected] = React.useState(() => {
+    if (wordsSelected[id] && wordsSelected[id][lineIndex])
+      return wordsSelected[id][lineIndex];
+    return [];
+  });
 
   const toogleSelection = (index) => {
     if (!hasWordSelection) return;
-    if (selected.includes(index)) {
-      setSelected([...selected.filter((i) => i !== index)]);
+    const newWords = { ...wordsSelected };
+    let selected = [];
+    if (!newWords[id]) newWords[id] = { lineIndex: [] };
 
-      setWordsSelected(
-        wordsSelected.filter(
-          (word) => word.id !== `${postOnDisplay.id}${index}`
-        )
-      );
-      return;
-    }
-    setSelected([...selected, index]);
-    setWordsSelected([
-      ...wordsSelected,
-      {
-        id: `${postOnDisplay.id}${index}`,
-        value: value[index]
-      }
-    ]);
+    if (newWords[id][lineIndex] !== undefined)
+      selected = [...newWords[id][lineIndex]];
+
+    if (selected.includes(index))
+      newWords[id][lineIndex] = [...selected.filter((i) => i !== index)];
+    else newWords[id][lineIndex] = [...selected, index];
+    setLineSelected([...newWords[id][lineIndex]]);
+    setWordsSelected(newWords);
   };
 
   const lineClasseDefault = `${classes.word} ${
@@ -121,7 +127,7 @@ function Word({ id, value, hasWordSelection, onWordPress }: WordProps) {
   return (
     <>
       {value.map((word, index) => {
-        const isSelected = selected.includes(index);
+        const isSelected = lineSelected.includes(index);
         const lineClasses =
           isSelected && hasWordSelection ? `${classes.selected}` : "";
         return (

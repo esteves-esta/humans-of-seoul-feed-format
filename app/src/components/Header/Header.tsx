@@ -1,4 +1,4 @@
-import { Slash, BadgeInfo, Settings } from "lucide-react";
+import { Slash, BadgeInfo, Settings, RotateCcw } from "lucide-react";
 import React from "react";
 import LateralModal from "../LateralModal";
 import SelectBox from "../SelectBox";
@@ -51,8 +51,8 @@ function Header() {
         <ul>
           <li>Practice my frontend skill</li>
           <li>
-            Practice my reading of korean and be able to only see the original
-            korean text first to try to translate it first by myself.
+            Practice my reading of korean, reading first the original korean
+            text to try to understand it.
           </li>
         </ul>
       </LateralModal>
@@ -62,6 +62,7 @@ function Header() {
         setOpen={setOpenThemeSettings}
       >
         <button className={classes.ResetButton} onClick={themeReset}>
+          <RotateCcw size={20} />
           reset
         </button>
 

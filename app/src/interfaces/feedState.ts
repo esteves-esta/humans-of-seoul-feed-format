@@ -6,11 +6,23 @@ export default interface FeedState {
   isLoading: boolean;
   postOnDisplay: Post | null;
   setPostOnDisplay: (post: Post) => void;
-  wordsSelected: WordSelected[];
-  setWordsSelected: (selecteds: WordSelected[]) => void;
+  wordsSelected: WordSelected;
+  setWordsSelected: (selecteds: WordSelected) => void;
 }
 
-export interface WordSelected {
-  id: string;
-  value: string;
-}
+type WordSelected = { [key in number]: { [key in number]: string[] } };
+
+// const t: FeedState = {
+//   posts: [],
+//   error: undefined,
+//   isLoading: false,
+//   postOnDisplay: undefined,
+//   setPostOnDisplay: function (post: Post): void {
+//     throw new Error("Function not implemented.");
+//   },
+//   wordsSelected: {34: {234: ['oi']}},
+//   setWordsSelected: function (selecteds: WordSelected): void {
+//     throw new Error("Function not implemented.");
+//   }
+// };
+// console.log(t)

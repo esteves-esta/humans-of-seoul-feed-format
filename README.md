@@ -41,12 +41,12 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
   - [x] Change word spacing
   - [x] Change paragraph margin
 - [x] Show list of posts 
+- [x] Style / Follow the prototype
 
 ### ✍️ Todo
-- [ ] Style / Follow the prototype
+- [ ] List of fonts - have weight available to put on slider
 - [x] Post features
-  - [ ] Show count of words selected
-  - [ ] Export words selected
+  - [ ] Export X words selected
   - [ ] ?? Export ready to export as anki card ??
   - [ ] ?? Consume dictionary api to get translation of word selected ??
 

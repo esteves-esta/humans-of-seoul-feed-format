@@ -9,7 +9,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
   border-radius: 0.2em;
   transition: background-color .3s ease-in;
 }

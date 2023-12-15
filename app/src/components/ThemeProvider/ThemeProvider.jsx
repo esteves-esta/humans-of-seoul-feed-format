@@ -1,15 +1,27 @@
 import React from "react";
+import useStickyState from "../../hooks/useStickyState";
 
 export const ThemeContext = React.createContext();
-// const localStorageKey = 'feed-posts'
 
 function ThemeProvider({ children }) {
-  const [color, setColor] = React.useState("beachyDay");
-  const [fontSize, setFontSize] = React.useState([1.5]);
-  const [font, setFont] = React.useState("Nanum Myeongjo");
-  const [fontWeight, setFontWeight] = React.useState([800]);
-  const [lineHeight, setlineHeight] = React.useState([1.8]);
-  const [wordSpacing, setWordSpacing] = React.useState([0]);
+  const [color, setColor] = useStickyState("beachyDay", "hos-filter-theme");
+  const [fontSize, setFontSize] = useStickyState([1.5], "hos-filter-fontsize");
+  const [font, setFont] = useStickyState(
+    "Nanum Myeongjo",
+    "hos-filter-fontfamily"
+  );
+  const [fontWeight, setFontWeight] = useStickyState(
+    [800],
+    "hos-filter-fontweight"
+  );
+  const [lineHeight, setlineHeight] = useStickyState(
+    [1.8],
+    "hos-filter-lineheight"
+  );
+  const [wordSpacing, setWordSpacing] = useStickyState(
+    [0],
+    "hos-filter-wordspacing"
+  );
 
   function themeReset() {
     setColor("teste2");

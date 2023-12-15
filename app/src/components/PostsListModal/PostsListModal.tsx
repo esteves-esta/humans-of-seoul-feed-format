@@ -23,7 +23,7 @@ function PostsListModal({ open, setOpen, container }) {
               <li key={post.id}>
                 <button
                   onClick={() => goToPost(index)}
-                  autoFocus={postOnDisplay.id === post.id}
+                  autoFocus={postOnDisplay?.id === post.id}
                 >
                   {post.kor.slice(0, 40)} ...
                 </button>
