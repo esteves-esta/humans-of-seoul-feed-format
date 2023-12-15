@@ -1,3 +1,30 @@
+.ResetButton {
+  font-family: 'Noto Sans', sans-serif !important;
+  text-transform: capitalize;
+  color: #444;
+  border: 1px solid rgba(68, 68, 68, 0.356);
+  padding: .8em 1.5em;
+
+  min-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0.2em;
+  transition: background-color .3s ease-in;
+}
+
+.ResetButton:hover,
+.ResetButton:focus {
+  background-color: rgba(68, 68, 68, 0.04);
+}
+
+.ResetButton:focus {
+  outline: 2px solid rgba(68, 68, 68, 0.356);
+  --box-shadow-focus: 0px 0px 3px 1px var(--color-text);
+  box-shadow: var(--box-shadow-focus);
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -14,23 +41,23 @@
   text-transform: uppercase;
   line-height: normal;
   letter-spacing: 2px;
-  /* color: hsl(var(--text-color-h), 20%, 44%); */
+
   color: var(--color-text);
   opacity: 0.8;
 }
 
-.header button {
-  color: var(--color-text);
-  opacity: 0.8;
+.header nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
-
 
 h1>svg {
   margin: 0px 20px;
 }
 
 h1>span {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: var(--ui-font-family);
   font-weight: 400;
 }
 

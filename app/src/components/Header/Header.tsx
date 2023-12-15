@@ -34,10 +34,13 @@ function Header() {
       </h1>
 
       <nav>
-        <button onClick={() => setOpenInfo(true)}>
+        <button className="IconButton" onClick={() => setOpenInfo(true)}>
           <BadgeInfo />
         </button>
-        <button onClick={() => setOpenThemeSettings(true)}>
+        <button
+          className="IconButton"
+          onClick={() => setOpenThemeSettings(true)}
+        >
           <Settings />
         </button>
       </nav>
@@ -58,7 +61,9 @@ function Header() {
         open={openThemeSettings}
         setOpen={setOpenThemeSettings}
       >
-        <button onClick={themeReset}>reset</button>
+        <button className={classes.ResetButton} onClick={themeReset}>
+          reset
+        </button>
 
         <div className={classes.Field}>
           <label htmlFor="theme">Color Theme</label>

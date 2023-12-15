@@ -116,6 +116,7 @@ function FeedProvider({ children }) {
   const [postOnDisplay, setPostOnDisplay] = React.useState(null);
   const [wordsSelected, setWordsSelected] = React.useState([]);
   const [posts, setPosts] = React.useState(() => {
+    // hook for using on themre provider
     const storageValue = localStorage.getItem(localStorageKey);
 
     return storageValue ? JSON.parse(storageValue) : [];
@@ -130,8 +131,9 @@ function FeedProvider({ children }) {
   }, [data]);
 
   React.useEffect(() => {
-    if (posts?.posts && posts.posts.length > 0) {
-      setPostOnDisplay(posts.posts[0]);
+    // console.log(posts);
+    if (posts && posts.length > 0) {
+      setPostOnDisplay(posts[0]);
     }
   }, [posts]);
 
@@ -141,7 +143,7 @@ function FeedProvider({ children }) {
     isLoading,
     postOnDisplay,
     setPostOnDisplay,
-    setWordsSelected,
+    setWordsSelected, // objects { id: ['words', 'sdf']}
     wordsSelected
   };
   return <FeedContext.Provider value={state}>{children}</FeedContext.Provider>;

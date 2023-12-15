@@ -3,31 +3,29 @@ import * as Dialog from "@radix-ui/react-dialog";
 import classes from "./Styles.module.css";
 import { FeedContext } from "../FeedProvider";
 import FeedState from "../../interfaces/feedState";
+import { X } from "lucide-react";
 
-function PostsListModal({ open, setOpen }) {
+function PostsListModal({ open, setOpen, container }) {
   const { posts } = React.useContext<FeedState>(FeedContext);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Portal>
-        <Dialog.Overlay />
+      <Dialog.Portal container={container}>
+        <Dialog.Overlay className={classes.DialogOverlay} />
         <Dialog.Content className={classes.DialogContent}>
-          {/* <Dialog.Title className={classes.DialogTitle}>
-            Edit profile
-          </Dialog.Title> */}
-          {/* <Dialog.Description className={classes.DialogDescription}>
-            List of posts
-          </Dialog.Description> */}
           <ul>
             {posts.map((post) => (
               <li key={post.id}>
-                {post.pubDate} -{post.kor}
+                <button>{post.kor.slice(0, 40)} ...</button>
               </li>
             ))}
           </ul>
           <Dialog.Close asChild>
-            <button className={classes.IconButton} aria-label="Close">
-              x
+            <button
+              className={`${classes.CloseButton} IconButton`}
+              aria-label="Close"
+            >
+              <X />
             </button>
           </Dialog.Close>
         </Dialog.Content>

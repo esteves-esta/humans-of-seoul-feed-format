@@ -3,12 +3,11 @@ import PostsListModal from "../PostsListModal";
 import { FeedContext } from "../FeedProvider";
 import FeedState from "../../interfaces/feedState";
 import classes from "./Styles.module.css";
-import { Slash, BadgeInfo, Settings } from "lucide-react";
+import { Slash } from "lucide-react";
 
-function PostsNavigation() {
+function PostsNavigation({ container, setOpen, open }) {
   const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } =
     React.useContext<FeedState>(FeedContext);
-  const [open, setOpen] = React.useState(false);
 
   const previousPost = () => {
     let currentIndex = posts.findIndex((post) => post.id === postOnDisplay.id);
@@ -33,7 +32,7 @@ function PostsNavigation() {
 
   return (
     <footer className={classes.Footer}>
-      <PostsListModal open={open} setOpen={setOpen} />
+      <PostsListModal container={container} open={open} setOpen={setOpen} />
 
       <nav>
         <button onClick={previousPost}>previous</button>
@@ -42,7 +41,7 @@ function PostsNavigation() {
           <button onClick={() => setOpen(true)}>
             see all {posts.length} posts
           </button>
-          <Slash />
+          <Slash size={15} />
           <button onClick={exportWordsSelected}>export</button>
         </div>
 
