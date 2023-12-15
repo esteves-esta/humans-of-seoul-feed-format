@@ -4,10 +4,10 @@ export const ThemeContext = React.createContext();
 // const localStorageKey = 'feed-posts'
 
 function ThemeProvider({ children }) {
-  const [color, setColor] = React.useState("teste2");
-  const [fontSize, setFontSize] = React.useState([1.4]);
-  const [font, setFont] = React.useState("Noto Sans");
-  const [fontWeight, setFontWeight] = React.useState([500]);
+  const [color, setColor] = React.useState("beachyDay");
+  const [fontSize, setFontSize] = React.useState([1.5]);
+  const [font, setFont] = React.useState("Nanum Myeongjo");
+  const [fontWeight, setFontWeight] = React.useState([800]);
   const [lineHeight, setlineHeight] = React.useState([1.8]);
   const [wordSpacing, setWordSpacing] = React.useState([0]);
 

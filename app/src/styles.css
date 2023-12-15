@@ -60,7 +60,7 @@
   font-family: 'Stylish', serif; */
 }
 
-.teste {
+.yellowSunrise {
   /* 
   accent: #FF6A3D;
   text: #1A2238; 
@@ -85,7 +85,7 @@
   --bg-color: hsl(var(--bg-color-hsl));
 }
 
-.teste1 {
+.greenyMountain {
 
   --text: hsl(171, 29%, 86%);
   --accent: hsl(127, 25%, 33%);
@@ -110,7 +110,7 @@
   --bg-color: hsl(var(--bg-color-hsl));
 }
 
-.teste2 {
+.beachyDay {
   --text: hsl(72, 5%, 21%);
   --accent: hsl(35, 70%, 84%);
   --bg: hsl(0, 0%, 95%);
@@ -121,20 +121,20 @@
   --text-color-hsl: var(--text-color-h), var(--text-color-s), var(--text-color-l);
   --color-text: hsl(var(--text-color-hsl));
 
-  --accent-color-h: 35;
-  --accent-color-s: 70%;
-  --accent-color-l: 74%;
+  --accent-color-h: 40;
+  --accent-color-s: 80%;
+  --accent-color-l: 69%;
   --accent-color-hsl: var(--accent-color-h), var(--accent-color-s), var(--accent-color-l);
   --color-accent: hsl(var(--accent-color-hsl));
 
-  --bg-color-h: 0;
-  --bg-color-s: 0%;
-  --bg-color-l: 100%;
+  --bg-color-h: 43;
+  --bg-color-s: 100%;
+  --bg-color-l: 96%;
   --bg-color-hsl: var(--bg-color-h), var(--bg-color-s), var(--bg-color-l);
   --bg-color: hsl(var(--bg-color-hsl));
 }
 
-.teste3 {
+.nightSky {
 
   --text: hsl(31, 54%, 72%);
   --accent: hsl(177, 45%, 24%);
@@ -159,7 +159,7 @@
   --bg-color: hsl(var(--bg-color-hsl));
 }
 
-.teste4 {
+.pinkyClounds {
 
   --text: hsl(223, 59%, 23%);
   --accent: hsl(17, 54%, 78%);

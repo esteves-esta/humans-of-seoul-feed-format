@@ -6,17 +6,27 @@ import FeedState from "../../interfaces/feedState";
 import { X } from "lucide-react";
 
 function PostsListModal({ open, setOpen, container }) {
-  const { posts } = React.useContext<FeedState>(FeedContext);
+  const { posts, setPostOnDisplay, postOnDisplay } =
+    React.useContext<FeedState>(FeedContext);
 
+  function goToPost(index) {
+    setPostOnDisplay(posts[index]);
+    setOpen(false);
+  }
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal container={container}>
         <Dialog.Overlay className={classes.DialogOverlay} />
         <Dialog.Content className={classes.DialogContent}>
           <ul>
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <li key={post.id}>
-                <button>{post.kor.slice(0, 40)} ...</button>
+                <button
+                  onClick={() => goToPost(index)}
+                  autoFocus={postOnDisplay.id === post.id}
+                >
+                  {post.kor.slice(0, 40)} ...
+                </button>
               </li>
             ))}
           </ul>

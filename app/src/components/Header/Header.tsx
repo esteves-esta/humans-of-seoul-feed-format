@@ -73,7 +73,13 @@ function Header() {
             onValueChange={setColor}
             placeholder="Choose a theme"
             label="Theme"
-            options={["teste", "teste1", "teste2", "teste3", "teste4"]}
+            options={[
+              "yellowSunrise",
+              "greenyMountain",
+              "beachyDay",
+              "nightSky",
+              "pinkyClounds"
+            ]}
           />
         </div>
 

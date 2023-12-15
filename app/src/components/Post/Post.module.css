@@ -12,10 +12,11 @@
 }
 
 .wordCount {
-  color: var(--color-text2);
+  color: var(--color-accent);
   font-size: 0.8em;
   margin-top: 1.5em;
   font-weight: 900;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
@@ -32,6 +33,17 @@
 .word {
   user-select: none;
   line-height: var(--line-height);
+  transition: border .2s ease-in;
+  position: relative;
+}
+
+.word:focus,
+.paragraph:focus {
+  outline: .1em dashed var(--color-accent);
+}
+
+.word.selected:focus {
+  outline: .1em dashed var(--color-text);
 }
 
 .wordPadding {
@@ -50,7 +62,7 @@
 .paragraph {
   font-size: 1em;
   margin-bottom: 0.4em;
-  color:var(--color-text);
+  color: var(--color-text);
 }
 
 .visible {
