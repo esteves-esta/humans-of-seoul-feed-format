@@ -109,7 +109,7 @@ function Word({
     if (!hasWordSelection) return;
     const newWords = { ...wordsSelected };
     let selected = [];
-    if (!newWords[id]) newWords[id] = { lineIndex: [] };
+    if (!newWords[id]) newWords[id] = { [lineIndex]: [] };
 
     if (newWords[id][lineIndex] !== undefined)
       selected = [...newWords[id][lineIndex]];

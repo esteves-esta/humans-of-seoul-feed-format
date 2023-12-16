@@ -45,6 +45,7 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 
 ### ✍️ Todo
 - [ ] List of fonts - have weight available to put on slider
+- [ ] responsive - mobile
 - [x] Post features
   - [ ] Export X words selected
   - [ ] ?? Export ready to export as anki card ??
