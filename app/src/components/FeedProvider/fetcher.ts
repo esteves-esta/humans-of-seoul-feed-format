@@ -1,4 +1,6 @@
-const FEED_URL = "https://proxy-bewq.onrender.com/";
+// const FEED_URL = "https://proxy-bewq.onrender.com/";
+const FEED_URL =
+  "https://api.allorigins.win/get?url=https://humansofseoul.com/rss";
 // const FEED_URL = "http://localhost:3001/";
 
 /* 
