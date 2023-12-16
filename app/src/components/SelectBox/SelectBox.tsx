@@ -1,6 +1,6 @@
 import classes from './Select.module.css'
 import * as Select from '@radix-ui/react-select';
-import { ChevronDown, Dot } from 'lucide-react'
+import { ChevronDown, ChevronUp, Dot } from 'lucide-react'
 
 function SelectBox({
   value,
@@ -20,6 +20,9 @@ function SelectBox({
     </Select.Trigger>
     <Select.Portal>
       <Select.Content sideOffset={5} position="popper" className={classes.SelectContent}>
+        <Select.ScrollUpButton className={classes.ScrollBtn}>
+          <ChevronUp />
+        </Select.ScrollUpButton>
 
         <Select.Viewport className={classes.SelectViewport}>
           <Select.Group>
@@ -30,6 +33,11 @@ function SelectBox({
             )}
           </Select.Group>
         </Select.Viewport>
+
+        <Select.ScrollDownButton className={classes.ScrollBtn}>
+          <ChevronDown />
+        </Select.ScrollDownButton>
+
       </Select.Content>
     </Select.Portal>
   </Select.Root>;

@@ -26,6 +26,22 @@ function Header() {
     themeReset
   } = React.useContext(ThemeContext);
 
+  const fonts = {
+    "Nanum Myeongjo": [400, 700,800],
+    "Gothic A1": [100,200,300,400,500,600,700,800,900],
+    "Noto Sans KR": [100, 200, 300, 400, 500, 600, 700, 800, 900],
+    "Noto Serif KR": [ 200, 300, 400, 500, 600, 700, 800, 900],
+    "Nanum Gothic Coding": [400, 700],
+    "Gowun Batang": [400, 700],
+    "Cute Font": [400],
+    "Diphylleia": [400],
+    "Gowun Dodum": [400],
+    "Song Myung": [400],
+    "Stylish": [400],
+  }
+
+  const fontFamilies = Object.keys(fonts)
+
   return (
     <header className={classes.header}>
       <h1 className={classes.title}>
@@ -92,19 +108,7 @@ function Header() {
             onValueChange={setFont}
             placeholder="Choose a font"
             label="Theme"
-            options={[
-              "Cute Font",
-              "Diphylleia",
-              "Gothic A1",
-              "Gowun Batang",
-              "Gowun Dodum",
-              "Nanum Gothic Coding",
-              "Nanum Myeongjo",
-              "Noto Sans KR",
-              "Noto Serif KR",
-              "Song Myung",
-              "Stylish"
-            ]}
+            options={fontFamilies}
           />
         </div>
 
@@ -120,17 +124,17 @@ function Header() {
           />
         </div>
 
-        <div className={classes.Field}>
+        {fonts[font].length > 1 && <div className={classes.Field}>
           <label htmlFor="fontWeight">Font Weight</label>
           <SliderCustom
             id="fontWeight"
             value={fontWeight}
             onValueChange={setFontWeight}
-            max={900}
-            min={300}
+            max={fonts[font].at(-1)}
+            min={fonts[font].at(0)}
             step={100}
           />{" "}
-        </div>
+        </div>}
 
         <div className={classes.Field}>
           <label htmlFor="lineHeight">Line spacing</label>

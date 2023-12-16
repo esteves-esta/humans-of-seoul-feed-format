@@ -4,10 +4,12 @@ import { FeedContext } from "../FeedProvider";
 import FeedState from "../../interfaces/feedState";
 import classes from "./Styles.module.css";
 import { Slash } from "lucide-react";
+import { ThemeContext } from "../ThemeProvider";
 
 
 
-function PostsNavigation({ container, setOpen, open }) {
+function PostsNavigation({ setOpen, open }) {
+  const {  container } = React.useContext(ThemeContext);
   const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } =
     React.useContext<FeedState>(FeedContext);
 

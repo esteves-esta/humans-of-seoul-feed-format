@@ -2,7 +2,9 @@ import React, { ForwardedRef } from "react";
 import classes from "./Post.module.css";
 import { FeedContext } from "../FeedProvider";
 import FeedState from "../../interfaces/feedState";
-
+import * as HoverCard from '@radix-ui/react-hover-card';
+import { ExternalLink } from 'lucide-react'
+import { ThemeContext } from "../ThemeProvider";
 interface ParagraphLineProps {
   value: string[];
   hasVisibilityToogle?: boolean;
@@ -96,6 +98,7 @@ function Word({
   onWordPress,
   lineIndex
 }: WordProps) {
+  const { container } = React.useContext(ThemeContext);
   const { setWordsSelected, wordsSelected } =
     React.useContext<FeedState>(FeedContext);
 
@@ -121,9 +124,8 @@ function Word({
     setWordsSelected(newWords);
   };
 
-  const lineClasseDefault = `${classes.word} ${
-    hasWordSelection ? classes.wordPadding : ""
-  }`;
+  const lineClasseDefault = `${classes.word} ${hasWordSelection ? classes.wordPadding : ""
+    }`;
   return (
     <>
       {value.map((word, index) => {
@@ -131,19 +133,30 @@ function Word({
         const lineClasses =
           isSelected && hasWordSelection ? `${classes.selected}` : "";
         return (
-          <span
-            tabIndex={hasWordSelection && 0}
-            key={`${id}${index}`}
-            onClick={() => toogleSelection(index)}
-            onKeyDown={(event) => {
-              onWordPress && onWordPress(event);
-              if (event.key !== "Tab" && event.key !== "Shift")
-                toogleSelection(index);
-            }}
-            className={`${lineClasseDefault} ${lineClasses}`}
-          >
-            {word}{" "}
-          </span>
+          <HoverCard.Root key={`${id}${index}`}>
+            <HoverCard.Trigger asChild>
+              <span
+                tabIndex={hasWordSelection && 0}
+                onClick={() => toogleSelection(index)}
+                onKeyDown={(event) => {
+                  onWordPress && onWordPress(event);
+                  if (event.key !== "Tab" && event.key !== "Shift")
+                    toogleSelection(index);
+                }}
+                className={`${lineClasseDefault} ${lineClasses}`}
+              >
+                {word}{" "}
+              </span>
+            </HoverCard.Trigger>
+            <HoverCard.Portal container={container}>
+              {hasWordSelection && <HoverCard.Content className={classes.HoverCardContent} sideOffset={5}>
+                <button onClick={() => window.open(` https://papago.naver.com/?sk=ko&tk=en&st=${word} `, '_blank')}>
+                  <ExternalLink /> search on papago
+                </button>
+                <HoverCard.Arrow className={classes.HoverCardArrow} />
+              </HoverCard.Content>}
+            </HoverCard.Portal>
+          </HoverCard.Root>
         );
       })}
     </>

@@ -16,11 +16,10 @@
 .SelectContent {
   font-family: 'Noto Sans', sans-serif !important;
   text-transform: capitalize;
-  width: 29vw;
+  width: 250px;
   border-radius: 0.2em;
   /* width: 100%; */
-  /* max-height: 80px; */
-
+  max-height:200px;
   background-color: white;
   border: 1px solid rgba(68, 68, 68, 0.356);
 }
@@ -55,6 +54,12 @@
 .SelectItem:focus {
   outline: none;
   background-color: rgba(68, 68, 68, 0.2);
+}
+
+.ScrollBtn {
+  display: flex;
+  justify-content: center;
+  color: #444
 }
 
 .SelectItemIndicator {}

@@ -75,3 +75,100 @@
   color: var(--color-accent);
   filter: blur(1px)
 }
+
+/* --------------------- */
+
+.HoverCardContent {
+  border-radius: 6px;
+  padding: 20px;
+  width: fit-content;
+  background-color: var(--color-accent);
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.HoverCardContent button {
+  color: var(--color-text);
+  border: 1px solid rgba(68, 68, 68, 0.356);
+  padding: .8em 1.5em;
+  border-radius: 0.2em;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.HoverCardContent button:hover,
+.HoverCardContent button:focus {
+  filter: brightness(29);
+}
+
+.HoverCardContent[data-side='top'] {
+  animation-name: slideDownAndFade;
+}
+
+.HoverCardContent[data-side='right'] {
+  animation-name: slideLeftAndFade;
+}
+
+.HoverCardContent[data-side='bottom'] {
+  animation-name: slideUpAndFade;
+}
+
+.HoverCardContent[data-side='left'] {
+  animation-name: slideRightAndFade;
+}
+
+.HoverCardArrow {
+  fill: var(--color-accent);
+}
+
+@keyframes slideUpAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

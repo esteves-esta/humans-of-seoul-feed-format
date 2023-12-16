@@ -22,7 +22,7 @@ function ThemeProvider({ children }) {
     [0],
     "hos-filter-wordspacing"
   );
-
+const [container, setContainer] = React.useState(null);
   function themeReset() {
     setColor("teste2");
     setFontSize([1.4]);
@@ -45,7 +45,9 @@ function ThemeProvider({ children }) {
     setlineHeight,
     wordSpacing,
     setWordSpacing,
-    themeReset
+    themeReset,
+    container,
+    setContainer,
   };
 
   return (

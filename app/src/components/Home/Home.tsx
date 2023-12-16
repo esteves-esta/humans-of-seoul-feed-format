@@ -8,8 +8,8 @@ import PostsNavigation from "../PostsNavigation";
 import { ThemeContext } from "../ThemeProvider";
 
 function Home() {
-  const { color } = React.useContext(ThemeContext);
-  const [container, setContainer] = React.useState(null);
+  const { color, setContainer } = React.useContext(ThemeContext);
+  
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext);
   const [openPostsList, setOpenList] = React.useState(false);
   return (
@@ -21,13 +21,12 @@ function Home() {
       >
         <Header />
 
-        {postOnDisplay && <Post />}
+        {postOnDisplay && <Post/>}
       </div>
 
       <PostsNavigation
         setOpen={setOpenList}
         open={openPostsList}
-        container={container}
       />
     </main>
   );

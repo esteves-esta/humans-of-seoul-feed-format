@@ -15,10 +15,10 @@
   min-height: 100vh;
   padding: 25px;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(155%, -50%);
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  top: 0px;
+  right: 0px;
+  /* transform: translateX(300px); */
+  /* animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1); */
   display: flex;
   flex-direction: column;
   gap: 1.6em;
@@ -38,7 +38,7 @@
   }
 }
 
-@keyframes contentShow {
+/* @keyframes contentShow {
   from {
     opacity: 0;
     transform: translate(200%, -50%);
@@ -46,6 +46,6 @@
 
   to {
     opacity: 1;
-    transform: translate(155%, -50%);
+    transform: translate(135%, -50%);
   }
-}
+} */
