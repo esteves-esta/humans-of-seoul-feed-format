@@ -1,12 +1,15 @@
 import FeedProvider from './components/FeedProvider'
 import Home from './components/Home'
+import ThemeProvider from './components/ThemeProvider'
 
 function App() {
 
   return (
-    <FeedProvider>
-      <Home />
-    </FeedProvider>
+    <ThemeProvider>
+      <FeedProvider>
+        <Home />
+      </FeedProvider>
+    </ThemeProvider>
   )
 }
 

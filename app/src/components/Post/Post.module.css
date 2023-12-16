@@ -1,0 +1,77 @@
+.postContainer ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.postContainer h3 {
+  color: var(--color-text);
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  font-weight: 900;
+}
+
+.wordCount {
+  color: var(--color-accent);
+  font-size: 0.8em;
+  margin-top: 1.5em;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.postContainer section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+}
+
+.translation {
+  text-align: right;
+}
+
+.word {
+  user-select: none;
+  line-height: var(--line-height);
+  transition: border .2s ease-in;
+  position: relative;
+}
+
+.word:focus,
+.paragraph:focus {
+  outline: .1em dashed var(--color-accent);
+}
+
+.word.selected:focus {
+  outline: .1em dashed var(--color-text);
+}
+
+.wordPadding {
+  padding: 0.2em 0.1em 0.2em 0.3em;
+  border-radius: 0.2em;
+  margin-right: 0.25em;
+  letter-spacing: 0em;
+  word-spacing: var(--word-spacing);
+}
+
+.selected {
+  user-select: none;
+  background-color: var(--color-accent);
+}
+
+.paragraph {
+  font-size: 1em;
+  margin-bottom: 0.4em;
+  color: var(--color-text);
+}
+
+.visible {
+  display: inline-block;
+}
+
+.hidden {
+  font-family: 'Redacted Script', cursive;
+  font-weight: 900;
+  color: var(--color-accent);
+  filter: blur(1px)
+}
