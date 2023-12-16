@@ -1,5 +1,5 @@
-// const FEED_URL = "https://proxy-bewq.onrender.com/";
-const FEED_URL = "http://localhost:3001/";
+const FEED_URL = "https://proxy-bewq.onrender.com/";
+// const FEED_URL = "http://localhost:3001/";
 
 /* 
 https://developer.mozilla.org/en-US/docs/Web/XML/Parsing_and_serializing_XML
@@ -88,7 +88,7 @@ function parseDOM2JSON(items) {
   return posts;
 }
 
-export const errorRetry = (error, key, config, revalidate, { retryCount }) => {
+export const errorRetry = (error, revalidate, { retryCount }) => {
   // Never retry on 404.
   if (error.status === 404) return;
 
