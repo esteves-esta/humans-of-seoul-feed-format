@@ -5,7 +5,7 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 ![Header image ](/header-readme.png "Header")
 
 > ### Access app on the link:
-> TODO
+> https://esteves-esta.github.io/humans-of-seoul-feed-format/
 
 ## Index
 

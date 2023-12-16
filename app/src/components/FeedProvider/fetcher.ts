@@ -17,8 +17,10 @@ export async function fetcher(teste) {
   const response = await fetch(FEED_URL, {
     method: "GET"
   });
-  const text = await response.text();
-  const dataXML = new DOMParser().parseFromString(text, "text/xml");
+  const json = await response.json()
+  // console.log(json.contents);
+  // const text = await json.contents.text();
+  const dataXML = new DOMParser().parseFromString(json.contents, "text/xml");
 
   const itemsHTML = dataXML.querySelectorAll("item");
   const posts = parseDOM2JSON(itemsHTML);
