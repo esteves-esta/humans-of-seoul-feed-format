@@ -1,6 +1,6 @@
-// const FEED_URL = "https://proxy-bewq.onrender.com/";
-const FEED_URL =
-  "https://api.allorigins.win/get?url=https://humansofseoul.com/rss";
+const FEED_URL = "https://humansofseoul.com/rss";
+// const FEED_URL =
+//   "https://api.allorigins.win/get?url=https://humansofseoul.com/rss";
 // const FEED_URL = "http://localhost:3001/";
 
 /* 
@@ -17,10 +17,10 @@ export async function fetcher(teste) {
   const response = await fetch(FEED_URL, {
     method: "GET"
   });
-  const json = await response.json()
-  // console.log(json.contents);
-  // const text = await json.contents.text();
-  const dataXML = new DOMParser().parseFromString(json.contents, "text/xml");
+  // const dataXML = new DOMParser().parseFromString(json.contents, "text/xml");
+  
+  const json = await response.text()
+  const dataXML = new DOMParser().parseFromString(json, "text/xml");
 
   const itemsHTML = dataXML.querySelectorAll("item");
   const posts = parseDOM2JSON(itemsHTML);

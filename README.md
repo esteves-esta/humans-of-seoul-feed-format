@@ -1,35 +1,45 @@
+![Header image ](/header-readme.png "Header")
 # Humans of Seoul / Formatted RSS Feed
 Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be able to read only the korean text and open translation when/if wanted.
 
 
-![Header image ](/header-readme.png "Header")
-
 > ### Access app on the link:
 > https://esteves-esta.github.io/humans-of-seoul-feed-format/
-
+> 
+---
 ## Index
 
 # Table of Contents
 - [Humans of Seoul / Formatted RSS Feed](#humans-of-seoul--formatted-rss-feed)
   - [Index](#index)
 - [Table of Contents](#table-of-contents)
+  - [Images](#images)
+  - [](#)
+  - [](#-1)
   - [📖 Features](#-features)
-    - [✅ Done](#-done)
-    - [✍️ Todo](#️-todo)
+    - [✅ Done ✨✨](#-done-)
   - [🧰 Tech Stack](#-tech-stack)
   - [🚀 How to run locally](#-how-to-run-locally)
 - [Printscreen of site](#printscreen-of-site)
 
 ---
-## 📖 Features
+---
 
-### ✅ Done
+## Images
+<img alt="Papago popover" src="./header-readme-papago-popover.png" width="550" />
+---
+<img alt="Customization modal" src="./header-readme-customization.png" width="550" />
+---
+<img alt="Posts list modal" src="./header-readme-list.png" width="550" />
+
+---
+## 📖 Features
+### ✅ Done ✨✨
 
 - [x] Consume RSS Fedd
   - [x] Parse XML to DOM
   - [x] DOM to JSON
 - [x] Show 1 post at a time
-- [X] Be able to go to previous or next post
 - [x] Post features
   - [x] Hide translation
   - [x] Toggle translation by paragraph
@@ -37,17 +47,16 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
   - [x] Show count of words in total
   - [x] Popover with button opening papago page on word
   - [x] Export X words selected
+- [X] Be able to go to previous or next post
 - [x] Settings for customization
-  - [x] Change fonts
-  - [x] Change bg and font color
+  - [x] Change font family
+  - [x] Change font weight
+  - [x] Change background and font color
   - [x] Change word spacing
   - [x] Change paragraph margin
 - [x] Show list of posts 
 - [x] Style / Follow the prototype
-
-### ✍️ Todo
-- [ ] responsive - mobile
-
+- [x] responsive - mobile
 
 ---
 
