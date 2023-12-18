@@ -35,7 +35,8 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
   - [x] Toggle translation by paragraph
   - [x] Select word from the korean original
   - [x] Show count of words in total
-  - [x] on word try to select or menu open link to papgo  https://papago.naver.com/?sk=ko&tk=en&st=미국
+  - [x] Popover with button opening papago page on word
+  - [x] Export X words selected
 - [x] Settings for customization
   - [x] Change fonts
   - [x] Change bg and font color
@@ -46,8 +47,7 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 
 ### ✍️ Todo
 - [ ] responsive - mobile
-- [x] Post features
-  - [ ] Export X words selected
+
 
 ---
 

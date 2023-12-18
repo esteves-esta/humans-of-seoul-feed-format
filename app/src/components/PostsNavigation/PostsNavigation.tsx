@@ -6,30 +6,30 @@ import classes from "./Styles.module.css";
 import { Slash } from "lucide-react";
 import { ThemeContext } from "../ThemeProvider";
 
-
-
 function PostsNavigation({ setOpen, open }) {
-  const {  container } = React.useContext(ThemeContext);
+  const { container } = React.useContext(ThemeContext);
   const { postOnDisplay, setPostOnDisplay, posts, wordsSelected } =
     React.useContext<FeedState>(FeedContext);
 
   const getTotalWords = React.useCallback(() => {
     let total = 0;
-    if (Object.keys(wordsSelected).length === 0) return
+    if (Object.keys(wordsSelected).length === 0) return;
 
-    Object.keys(wordsSelected).forEach(key => {
-      Object.keys(wordsSelected[key]).forEach(line => total += wordsSelected[key][line].length)
+    Object.keys(wordsSelected).forEach((key) => {
+      Object.keys(wordsSelected[key]).forEach(
+        (line) => (total += wordsSelected[key][line].length)
+      );
     });
-    return total
-  }, [wordsSelected])
+    return total;
+  }, [wordsSelected]);
 
-  const [totalWordsSelected, setTotalWordsSelected] = React.useState(() => getTotalWords())
+  const [totalWordsSelected, setTotalWordsSelected] = React.useState(() =>
+    getTotalWords()
+  );
 
   React.useEffect(() => {
     setTotalWordsSelected(getTotalWords());
-  }, [wordsSelected, getTotalWords])
-
-
+  }, [wordsSelected, getTotalWords]);
 
   const previousPost = () => {
     let currentIndex = posts.findIndex((post) => post.id === postOnDisplay.id);
@@ -49,31 +49,41 @@ function PostsNavigation({ setOpen, open }) {
   };
 
   const exportWordsSelected = () => {
-    const arrWords = []
+    const arrWords = [];
 
-    if (Object.keys(wordsSelected).length === 0) return
+    if (Object.keys(wordsSelected).length === 0) return;
 
-    Object.entries(wordsSelected).forEach(key => {
-      const post = posts.find(post => post.id == key[0])
-      Object.keys(key[1]).forEach(line => {
-        const words = post.korSplit[line].split(' ');
+    Object.entries(wordsSelected).forEach((key) => {
+      const post = posts.find((post) => post.id == key[0]);
+      Object.keys(key[1]).forEach((line) => {
+        const words = post.korSplit[line].split(" ");
         const id = `${key[0]}-${line}`;
-        key[1][line].forEach(wordIndex => {
-          arrWords.push([id, words[wordIndex]])
+        key[1][line].forEach((wordIndex) => {
+          arrWords.push([id, words[wordIndex]]);
         });
-
-      })
+      });
     });
 
-    console.log({ arrWords })
-    // TODO EXPORT AS CSV
+    console.log({ arrWords });
+    downloadCsvFile(arrWords.join("\n"), "humans-of-seould-selected-word.csv");
   };
 
+  function downloadCsvFile(content, fileName) {
+    const blob = new Blob(["\ufeff", content], {
+      type: "data:text/csv;charset=utf-8;"
+    });
 
-
-
-
-  // console.log(totalWordsSelected)
+    const link = document.createElement("a");
+    if (link.download !== undefined) {
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", fileName);
+      link.style.visibility = "hidden";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
 
   return (
     <footer className={classes.Footer}>
@@ -87,7 +97,11 @@ function PostsNavigation({ setOpen, open }) {
             see all {posts.length} posts
           </button>
           <Slash size={15} />
-          <button onClick={exportWordsSelected}>export {totalWordsSelected} words selected</button>
+          {totalWordsSelected && (
+            <button onClick={exportWordsSelected}>
+              export {totalWordsSelected} words selected
+            </button>
+          )}
         </div>
 
         <button onClick={nextPost}>next</button>
