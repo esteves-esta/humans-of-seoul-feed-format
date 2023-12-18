@@ -13,21 +13,21 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 - [Humans of Seoul / Formatted RSS Feed](#humans-of-seoul--formatted-rss-feed)
   - [Index](#index)
 - [Table of Contents](#table-of-contents)
-  - [Images](#images)
+  - [Printscreen](#printscreen)
   - [📖 Features](#-features)
     - [✅ Done ✨✨](#-done-)
   - [🧰 Tech Stack](#-tech-stack)
   - [🚀 How to run locally](#-how-to-run-locally)
-- [Printscreen of site](#printscreen-of-site)
+- [Learning sources](#learning-sources)
 
 ---
 ---
 
-## Images
+## Printscreen
 <img alt="Papago popover" src="./header-readme-papago-popover.png" width="550" />
----
+
 <img alt="Customization modal" src="./header-readme-customization.png" width="550" />
----
+
 <img alt="Posts list modal" src="./header-readme-list.png" width="550" />
 
 ---
@@ -110,6 +110,13 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
       ```
 
 
-# Printscreen of site
+# Learning sources
+
+- [Parsing and serializing XML
+](https://developer.mozilla.org/en-US/docs/Web/XML/Parsing_and_serializing_XML)
+- [How to Fetch and Parse RSS Feeds in JavaScript](https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/)
+- [Create an RSS Reader with React and JavaScript](https://thewebdev.info/2021/02/13/create-an-rss-reader-with-react-and-javascript/)
+
+
 
 

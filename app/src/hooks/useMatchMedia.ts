@@ -1,6 +1,6 @@
 import React from "react";
 /* https://betterprogramming.pub/using-window-matchmedia-in-react-8116eada2588 */
-const useMatchMedia = (size = 850) => {
+const useMatchMedia = (size = 640) => {
   const [isNarrowScreen, setIsNarrowScreen] = React.useState(false);
 
   React.useEffect(() => {
@@ -8,8 +8,6 @@ const useMatchMedia = (size = 850) => {
     setIsNarrowScreen(mediaWatcher.matches);
 
     function updateIsNarrowScreen(event) {
-      // console.log({ event });
-      // console.log({ mediaWatcher: mediaWatcher.matches });
       event.matches && setIsNarrowScreen(event.matches);
     }
 

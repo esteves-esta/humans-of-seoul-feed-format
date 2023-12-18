@@ -1,26 +1,18 @@
-const FEED_URL = "https://humansofseoul.com/rss";
-// const FEED_URL =
-//   "https://api.allorigins.win/get?url=https://humansofseoul.com/rss";
+// const FEED_URL = "https://humansofseoul.com/rss";
+const FEED_URL =
+  "https://api.allorigins.win/get?url=https://humansofseoul.com/rss";
 // const FEED_URL = "http://localhost:3001/";
-
-/* 
-https://developer.mozilla.org/en-US/docs/Web/XML/Parsing_and_serializing_XML
-https://css-tricks.com/how-to-fetch-and-parse-rss-feeds-in-javascript/
-https://thewebdev.info/2021/02/13/create-an-rss-reader-with-react-and-javascript/
-https://humansofseoul.com/rss
-
-https://allorigins.win/
-*/
 
 export async function fetcher(teste) {
   console.log(teste);
   const response = await fetch(FEED_URL, {
     method: "GET"
   });
-  // const dataXML = new DOMParser().parseFromString(json.contents, "text/xml");
+  const json = await response.json()
+  const dataXML = new DOMParser().parseFromString(json.contents, "text/xml");
   
-  const json = await response.text()
-  const dataXML = new DOMParser().parseFromString(json, "text/xml");
+  // const json = await response.text()
+  // const dataXML = new DOMParser().parseFromString(json, "text/xml");
 
   const itemsHTML = dataXML.querySelectorAll("item");
   const posts = parseDOM2JSON(itemsHTML);
@@ -30,7 +22,7 @@ export async function fetcher(teste) {
       .replace(/([a-zA-Z]{1})\.([a-zA-Z]{1})\./g, "$1$2")
       .split(". ");
   });
-  // console.log(posts)
+
   return { posts };
 }
 
@@ -81,13 +73,7 @@ function parseDOM2JSON(items) {
         eng: paragraphs[indexEng]?.textContent,
         selectedWords: []
       });
-    } /* else {
-      console.log(indexKor);
-      console.log(paragraphs[indexKor]?.textContent);
-      console.log(indexEng);
-      console.log(paragraphs[indexEng]?.textContent);
-      console.log("ooo");
-    } */
+    }
   });
   return posts;
 }

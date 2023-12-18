@@ -2,8 +2,8 @@ import React, { ForwardedRef } from "react";
 import classes from "./Post.module.css";
 import { FeedContext } from "../FeedProvider";
 import FeedState from "../../interfaces/feedState";
-import * as HoverCard from '@radix-ui/react-hover-card';
-import { ExternalLink } from 'lucide-react'
+import * as HoverCard from "@radix-ui/react-hover-card";
+import { ExternalLink } from "lucide-react";
 import { ThemeContext } from "../ThemeProvider";
 interface ParagraphLineProps {
   value: string[];
@@ -57,7 +57,6 @@ const ParagraphLine = React.forwardRef(
               className={`${lineClasseDefault} ${lineClasses}`}
               onClick={() => toogleVisibility(index)}
               onKeyDown={(event) => {
-                // console.log({ event: event.key });
                 if (
                   event.key !== "Tab" &&
                   event.key !== "Shift" &&
@@ -124,8 +123,9 @@ function Word({
     setWordsSelected(newWords);
   };
 
-  const lineClasseDefault = `${classes.word} ${hasWordSelection ? classes.wordPadding : ""
-    }`;
+  const lineClasseDefault = `${classes.word} ${
+    hasWordSelection ? classes.wordPadding : ""
+  }`;
   return (
     <>
       {value.map((word, index) => {
@@ -149,12 +149,24 @@ function Word({
               </span>
             </HoverCard.Trigger>
             <HoverCard.Portal container={container}>
-              {hasWordSelection && <HoverCard.Content className={classes.HoverCardContent} sideOffset={5}>
-                <button onClick={() => window.open(` https://papago.naver.com/?sk=ko&tk=en&st=${word} `, '_blank')}>
-                  <ExternalLink /> search on papago
-                </button>
-                <HoverCard.Arrow className={classes.HoverCardArrow} />
-              </HoverCard.Content>}
+              {hasWordSelection && (
+                <HoverCard.Content
+                  className={classes.HoverCardContent}
+                  sideOffset={5}
+                >
+                  <button
+                    onClick={() =>
+                      window.open(
+                        ` https://papago.naver.com/?sk=ko&tk=en&st=${word} `,
+                        "_blank"
+                      )
+                    }
+                  >
+                    <ExternalLink /> search on papago
+                  </button>
+                  <HoverCard.Arrow className={classes.HoverCardArrow} />
+                </HoverCard.Content>
+              )}
             </HoverCard.Portal>
           </HoverCard.Root>
         );
