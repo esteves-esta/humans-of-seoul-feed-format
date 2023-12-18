@@ -73,7 +73,6 @@ function PostsNavigation({ setOpen, open }) {
       });
     });
 
-    console.log({ arrWords });
     downloadCsvFile(arrWords.join("\n"), "humans-of-seould-selected-word.csv");
   };
 
