@@ -6,7 +6,7 @@ import { ThemeContext } from "../ThemeProvider";
 // import { formatDate } from "../../helper/format";
 import ParagraphLine from "./ParagraphLine";
 
-function Post({ container }) {
+function Post() {
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext);
 
   const { korSplit, kor, engSplit, id } = postOnDisplay;

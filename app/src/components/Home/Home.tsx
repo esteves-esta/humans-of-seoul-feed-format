@@ -6,10 +6,11 @@ import Post from "../Post";
 import Header from "../Header";
 import PostsNavigation from "../PostsNavigation";
 import { ThemeContext } from "../ThemeProvider";
+import Loader from "../Loader";
 
 function Home() {
   const { color, setContainer } = React.useContext(ThemeContext);
-  
+
   const { postOnDisplay } = React.useContext<FeedState>(FeedContext);
   const [openPostsList, setOpenList] = React.useState(false);
   return (
@@ -21,13 +22,11 @@ function Home() {
       >
         <Header />
 
-        {postOnDisplay && <Post/>}
+        {postOnDisplay && <Post />}
+        {!postOnDisplay && <Loader />}
       </div>
 
-      <PostsNavigation
-        setOpen={setOpenList}
-        open={openPostsList}
-      />
+      <PostsNavigation setOpen={setOpenList} open={openPostsList} />
     </main>
   );
 }

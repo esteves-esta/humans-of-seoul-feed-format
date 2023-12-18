@@ -45,19 +45,6 @@
 
 
   --ui-font-family: 'Noto Sans', sans-serif !important;
-
-  /* font-family: 'Cute Font', sans-serif;
-  font-family: 'Diphylleia', serif;
-  font-family: 'Gothic A1', sans-serif;
-  font-family: 'Gowun Batang', serif;
-  font-family: 'Gowun Dodum', sans-serif; */
-  /* font-family: 'Nanum Gothic Coding', monospace;
-  font-family: 'Nanum Myeongjo', serif;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Noto Serif KR', serif;
-  font-family: 'Redacted Script', cursive;
-  font-family: 'Song Myung', serif;
-  font-family: 'Stylish', serif; */
 }
 
 .yellowSunrise {
@@ -188,11 +175,18 @@ body {
   margin: 0px
 }
 
+
 main {
-  padding: 2.5em 5em;
+  padding: 2.5em 1.3em;
   background-color: var(--bg-color);
   min-height: 100%;
   padding-bottom: 10em;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    padding: 2.5em 5em;
+  }
 }
 
 article {
@@ -238,10 +232,4 @@ a:focus {
   /* mix-blend-mode:luminosity; */
   filter: saturate(75%);
   background-color: var(--color-accent);
-}
-
-/* --- */
-@media screen and (min-width: 640px) {
-  /* @media screen and (min-width: 0px) and (max-width: 640px) { */
-
 }
