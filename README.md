@@ -14,8 +14,6 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
   - [Index](#index)
 - [Table of Contents](#table-of-contents)
   - [Images](#images)
-  - [](#)
-  - [](#-1)
   - [📖 Features](#-features)
     - [✅ Done ✨✨](#-done-)
   - [🧰 Tech Stack](#-tech-stack)
