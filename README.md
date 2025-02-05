@@ -63,6 +63,7 @@ Formatting Humans of Seoul RSS feed to be to practice reading in koreand and be 
 - Vite
 - React
 - Typescript
+- FRANC - Natural language detection
 - SWR
 - Lucide React - icons
 - Papaparse - json to csv

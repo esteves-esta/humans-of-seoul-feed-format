@@ -53,7 +53,7 @@ function Header() {
       <nav>
         <button className="IconButton" onClick={() => setOpenInfo(true)}>
           <BadgeInfo />
-          <VisuallyHidden.Root>About the tsite</VisuallyHidden.Root>
+          <VisuallyHidden.Root>About the site</VisuallyHidden.Root>
         </button>
         <button
           className="IconButton"
@@ -74,6 +74,12 @@ function Header() {
             original korean text to try to understand it.
           </li>
         </ul>
+        <a
+          target="_blank"
+          href="https://github.com/esteves-esta/one-page-calendar"
+        >
+          github repository
+        </a>
       </LateralModal>
       <LateralModal
         title="Customization"
